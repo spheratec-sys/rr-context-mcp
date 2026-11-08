@@ -1,0 +1,10 @@
+12^done,stack=[frame={level="0",addr="0x00000000004011a2",func="parse_packet",file="src/parser.c",fullname="/work/app/src/parser.c",line="84",arch="i386:x86-64"},frame={level="1",addr="0x0000000000401300",func="worker",file="src/worker.c",line="211"},frame={level="2",addr="0x0000000000401050",func="main",file="src/main.c",line="31"}]
+13^done,locals=[{name="cursor",value="0x0"},{name="length",value="4096"},{name="packet",value="0x7fffffffdc20 \"\\000\\001...\""},{name="checksum",value="<optimized out>"}]
+14^done,current-thread-id="3",threads=[{id="1",target-id="Thread 0x7ffff7c1a740 (LWP 22104)",name="main",state="stopped",frame={level="0",func="main",file="src/main.c",line="31"}},{id="2",target-id="Thread 0x7ffff74196c0 (LWP 22105)",name="io-worker",state="stopped",frame={level="0",func="read_loop",file="src/io.c",line="98"}},{id="3",target-id="Thread 0x7ffff6c186c0 (LWP 22106)",name="parser",state="stopped",frame={level="0",func="parse_packet",file="src/parser.c",line="84"}}]
+*stopped,reason="watchpoint-trigger",wpnum="2",value="0x0",oldvalue="0x1",thread-id="3",stopped-threads="all",frame={addr="0x4011a2",func="parse_packet",file="src/parser.c",line="84"}
+*stopped,reason="signal-received",signal-name="SIGSEGV",signal-meaning="Segmentation fault",thread-id="3",stopped-threads="all",frame={addr="0x0",func="parse_packet",file="src/parser.c",line="84"}
+*stopped,reason="signal-received",signal-name="SIGABRT",signal-meaning="Aborted",thread-id="1",frame={addr="0x7ffff7a4c00e",func="raise",file="../sysdeps/posix/raise.c",line="26"}
+*stopped,reason="breakpoint-hit",bkptno="4",thread-id="2",disp="keep",frame={addr="0x401300",func="worker",file="src/worker.c",line="211"}
+~"rr: when: Event 481, t.3:15\n"
+15^done,bkpt={number="4",type="breakpoint",disp="keep",enabled="y",addr="0x0000000000401300",func="worker",file="src/worker.c",line="211",thread-groups=["i1"]}
+16^done,stack=[frame={level="0",func="truncated",line="91"},frame={level="1",func="caller",file="src/caller.c"

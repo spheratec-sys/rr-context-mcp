@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rr-context-mcp"
+version = "0.1.0"
+description = "An MCP server for root-cause analysis with rr record/replay debugging"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = ["mcp>=2.2,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+rr-context-mcp = "rr_context_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rr_context_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
