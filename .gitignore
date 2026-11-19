@@ -8,3 +8,4 @@ dist/
 *.rr/
 *.zip
 .codex/
+/upload/
