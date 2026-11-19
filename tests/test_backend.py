@@ -12,7 +12,11 @@ from rr_context_mcp.backend import DebuggerError, RRBackend
 def test_record_uses_argv_and_preserves_exit_code(monkeypatch, tmp_path):
     trace_root = tmp_path / "traces"
     monkeypatch.setenv("RR_TRACE_DIR", str(trace_root))
-    monkeypatch.setattr(backend.shutil, "which", lambda exe: "/usr/bin/rr")
+    monkeypatch.setattr(backend, "rr_available", lambda: {
+        "can_record": True,
+        "rr_path": "/usr/bin/rr",
+        "issues": [],
+    })
     seen = {}
 
     def fake_run(argv, **kwargs):
