@@ -141,6 +141,13 @@ pipx install .
 rr-context-mcp
 ```
 
+To install directly from the public GitHub repository with pipx:
+
+```bash
+pipx install 'git+https://github.com/spheratec-sys/rr-context-mcp.git'
+rr-context-mcp --help
+```
+
 After a release is published to PyPI, users can run `pipx run rr-context-mcp` or `uvx rr-context-mcp` without installing it into a project environment.
 
 On Windows, the venv activation command is `.venv\\Scripts\\activate`; the server itself still requires Linux and rr.
